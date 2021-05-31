@@ -1,8 +1,12 @@
 import React from "react";
-import Button from "components/Button"
-export default function HourlyTempList(props) {
-   
+import HourlyTempListItem from "./HourlyTempListItem"
+export default function HourlyTempList({hourlyForecast}) {
+   const list = hourlyForecast.map((hour) => {
+        return <HourlyTempListItem key={hour.dt} {...hour}/>
+   })
    return (
-        <ul></ul>
+        <ul>
+            {list}
+        </ul>
     )
 }
